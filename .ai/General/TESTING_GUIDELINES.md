@@ -27,7 +27,7 @@
 ## 4. Quality Standards / 品質標準
 > **[TODO: 請根據實際專案填寫或調整]**
 > - **測試覆蓋率 (Test Coverage)**: 專案的目標測試覆蓋率為 **80%**。任何新的程式碼都應伴隨測試，以維持或提升整體覆蓋率。
-> - **測試命名**: 測試案例的名稱應清晰描述其測試的行為，例如 `should return false when password is incorrect`。
+- **測試命名**: 測試案例的名稱應清晰描述其測試的行為，例如 `should return false when password is incorrect`。
 
 ## 5. Mocking & Stubbing / 模擬與樁數據
 - **原則**: 當被測單元依賴外部模組（如 API 呼叫、資料庫查詢）時，應使用 Mock 或 Stub 來模擬這些依賴的行為。

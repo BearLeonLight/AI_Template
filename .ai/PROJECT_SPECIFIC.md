@@ -1,39 +1,34 @@
-# Project-Specific Rules / 特定專案規則
+# Project-Specific Rules / 專案特定規則
 
-This file contains rules, context, and configurations that are specific to this particular project.
-此檔案包含此特定專案的規則、上下文與設定。
+此文件定義了「AI 模板 (AI Templates)」這個專案本身的專屬開發規範。由於本專案是一個模板儲存庫，這裡的規則主要針對如何維護、建立與擴充這些模板。
 
-## 1. Project Context / 專案背景
-> **[TODO: 在此填寫]**
-> 請簡述專案的目標、業務邏輯與主要功能。
-> (例如：這是一個電子商務平台，主要提供商品展示與購物車功能...)
+## 1. 專案核心定位 (Project Core Positioning)
 
-## 2. AI Persona / AI 角色設定
-> **[TODO: 在此填寫或微調]**
-> 你是一位資深的軟體工程師與架構師。在協助開發時，你應該展現專業、嚴謹且有條理的態度，並專注於提供最佳實踐。
-> (可根據專案需求調整，例如：前端專家、資料庫管理員等)
+本專案是一個 **AI 輔助開發模板儲存庫 (Template Repository)**。其主要目的是提供標準化、可重複使用的 `.ai` 目錄結構與規範內容，供其他各種專案直接複製與套用。
+**AI 角色提醒**: 在本專案中，您的角色是「模板建構師與維護者」，負責優化與擴充框架，而不是「終端專案的開發者」。
 
-## 3. Technologies / 主要技術棧
-> **[TODO: 請根據實際專案填寫]**
-> - Frontend: 
-> - Backend: 
-> - Database: 
-> - Tools / Others: 
+## 2. 目錄結構與路徑模擬規範 (Directory & Path Simulation)
 
-## 4. API Usage Guidelines / API 使用規範
-> **[TODO: 請根據實際專案填寫]**
-> - API 命名與路由設計慣例 (RESTful 或 GraphQL 等)。
-> - 請求與回應的資料格式 (如統一個 Response 結構)。
-> - 錯誤處理機制 (Error Handling) 與狀態碼 (Status Codes) 規範。
+本專案的結構分為兩大部分，必須嚴格區分其維護邏輯：
 
-## 5. Coding Standards & Best Practices / 編碼標準與最佳實踐
-> **[TODO: 請根據實際專案填寫]**
-> - 縮排與排版風格 (例如：ESLint, Prettier 的配置重點)。
-> - 變數與函式命名規則 (例如：變數與函式使用 camelCase，類別使用 PascalCase)。
-> - 註解與文件規範 (例如：JSDoc/TypeDoc 的使用時機，說明 "Why" 而非 "What")。
-> - 目錄結構存放規範 (Component, Service, Util 等各該放在哪個位置)。
+- **`.ai/` 目錄**: 這是**本專案自身**的 AI 配置檔。所有針對此儲存庫本身的修改與行為，都受此目錄下的規則約束。
+- **`Template/` 目錄**: 這是存放供**其他專案**使用的模板來源。
+  - **⚠️ 核心路徑模擬原則**: 當您修改 `Template/` 目錄下的任何檔案時，**必須假設該檔案已經被複製到目標專案的 `.ai/` 目錄下**。
+  - **舉例**: 在 `Template/AI_INDEX.md` 檔案內的文字或路徑引用，若要指向通用規則，必須寫成 `.ai/General/GENERAL_RULES.md`，**絕對不可**寫出 `Template/...` 這樣的實體路徑。所有模板內容輸出的路徑都必須是以 `.ai/` 為起點。
 
-## 6. Development Environment / 開發環境設定
-> **[TODO: 請根據實際專案填寫]**
-> - Node/NPM/Yarn 等工具的版本要求。
-> - 環境變數 (Environment Variables) 的配置方式 (請勿將任何敏感資訊填寫於此)。
+## 3. 模板維護與同步原則 (Template Maintenance & Sync)
+
+- **通用性優先 (Universality First)**: `Template/General/` 目錄下的所有規範必須保持最高度的通用性，適用於任何語言與框架。絕對不可將特定技術棧的規則寫入通用規範中。
+- **雙向同步 (Two-Way Sync)**: 本專案自身的 `.ai/General/` 內容應與 `Template/General/` 保持高度同步。當發現通用規則需要優化時，應同時更新這兩個位置，以確保本專案自身與輸出的模板皆能享有最佳實踐。
+- **模組化擴充 (Modular Expansion)**: 若要新增特定技術（如 Web, Mobile, Plugin 等）的規範，應在 `Template/` 下建立該技術的專屬子目錄（例如 `Template/React/`）。該目錄內通常只應包含高度客製化的 `PROJECT_SPECIFIC.md`。
+
+## 4. 內容與格式標準 (Content & Formatting Standards)
+
+- **Markdown 嚴格要求**: 所有模板檔案必須使用標準的 Markdown 格式。
+  - 標題結構需清晰 (H1 代表檔名/主旨, H2 代表主要章節, H3 代表次要章節)。
+  - 善用列表 (Lists)、粗體 (Bold) 與程式碼區塊 (Code Blocks) 來凸顯重點，提升 AI 與人類的可讀性。
+- **語言限制**: 嚴格遵守 `GENERAL_RULES.md`，內容解釋與敘述必須使用**繁體中文**，所有**技術術語 (Technical Terms) 必須保留英文原文**。
+
+## 5. 防循環保護 (Anti-Loop Protection)
+
+- 若發現相同的錯誤、指令或修正動作被重複執行 (連續嘗試 3 次仍未解決時)，應立即停止當前操作，中斷任何無限迴圈 (包含無限檢查、修正、新增、更新、優化等與 AI 相關之動作)，並主動向開發者回報卡住的問題點及可能原因，等待開發者指示。

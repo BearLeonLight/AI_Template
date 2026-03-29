@@ -4,3 +4,6 @@ You must follow the rules defined in the `.ai/` directory.
 Always start by reading `.ai/AI_INDEX.md` to understand the project structure, guidelines, and reading order for AI context.
 
 Read `.ai/AI_INDEX.md` now.
+
+# Anti-Loop Protection
+If the exact same error, command, or correction is repeated consecutively (3 times unresolved), immediately stop the current operation and break any infinite loops. Report the blocking issue and possible causes to the developer proactively, waiting for further instructions.

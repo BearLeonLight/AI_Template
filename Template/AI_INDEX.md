@@ -12,7 +12,7 @@ For AI tools to properly understand the project context, follow this reading ord
 This file provides the overall context of the repository.
 此檔案提供儲存庫的整體上下文。
 
-1.  **`README.md`**: Understand the purpose of this repository, the core concepts (`.ai` vs `Template`), and the overall structure. (理解此儲存庫的用途、核心概念 (`.ai` 與 `Template` 的區別) 及整體結構。)
+1.  **`README.md`**: Understand the purpose of this repository, the core concepts, and the overall structure. (理解此儲存庫的用途、核心概念及整體結構。)
 
 ### Part 1: General Rules (Universal) / 第一部分：通用規則 (適用於所有專案)
 
@@ -38,7 +38,3 @@ This file is located in the `.ai/` root directory. Its rules **override** or **e
 
 When a project-specific rule conflicts with a general rule, the **project-specific rule always takes precedence**. Your primary role is to adhere to the unique requirements of this project.
 當專案特定規則與通用規則衝突時，**永遠以專案特定規則為準**。您的首要職責是遵守此專案的獨特要求。
-
-**Anti-Loop Protection / 防循環保護**:
-If the exact same error, command, or correction is repeated consecutively (3 times unresolved), immediately stop the current operation and break any infinite loops (including infinite checking, fixing, generating, updating, optimizing, or any AI-related actions). Report the blocking issue and possible causes to the developer proactively, waiting for further instructions.
-若發現相同的錯誤、指令或修正動作被重複執行 (連續嘗試 3 次仍未解決時)，應立即停止當前操作，中斷任何無限迴圈 (包含無限檢查、修正、新增、更新、優化等與 AI 相關之動作)，並主動向開發者回報卡住的問題點及可能原因，等待開發者指示。
