@@ -1,0 +1,19 @@
+# Build and dependency artifacts
+/build/
+/out/
+/target/
+/node_modules/
+
+# IDE configuration
+/.idea/
+/.vscode/
+
+# Logs
+*.log
+
+# Git files
+.git/
+
+# This file itself
+.aiignore
+.gitignore

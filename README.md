@@ -26,9 +26,13 @@ The `Template` directory contains pre-configured `.ai` folder structures for dif
 
 ## How to Use / 如何使用
 
-1.  **Choose a Template**: Browse the `Template` directory and find a suitable template for your project (e.g., `Template/PaperMcPlugin`).
-2.  **Copy and Rename**: Copy the chosen template directory to the root of your new project and rename it to `.ai`.
-3.  **Customize**: Modify the files within the new `.ai` directory, especially `PROJECT_SPECIFIC.md`, to match your project's technology stack, coding standards, and other unique requirements.
+1.  **Choose a Template**: Browse the `Template` directory. A typical project setup involves combining `General` and a technology-specific guide.
+2.  **Copy and Assemble**:
+    *   Create a new `.ai` directory in your project root.
+    *   Copy the entire `Template/General/` directory into your new `.ai/` directory.
+    *   Copy the `Template/AI_INDEX.md` into your new `.ai/` directory.
+    *   From a technology-specific directory (e.g., `Template/PaperMcPlugin/`), copy the `PROJECT_GUIDE.md` into your new `.ai/` directory.
+3.  **Customize**: Modify `.ai/PROJECT_GUIDE.md` to match your project's specific needs.
 4.  **Integrate with AI**: Use the system prompt from `.ai/General/PROMPTS.md` to instruct your AI assistant to read and follow the rules defined in your `.ai` directory.
 
 ## Repository Structure / 儲存庫結構
@@ -37,11 +41,11 @@ The `Template` directory contains pre-configured `.ai` folder structures for dif
 .
 ├── .ai/                  # AI rules for THIS repository
 │   ├── General/          # General, universal rules
-│   └── AI_INDEX.md       # Index of all AI rules
+│   └── PROJECT_SPECIFIC.md # Specific rules for this repo
 ├── Template/             # Collection of .ai templates for other projects
 │   ├── General/          # Base general rules for all templates
 │   ├── PaperMcPlugin/    # Specific template for PaperMC Plugins
-│   │   └── PROJECT_SPECIFIC.md
+│   │   └── PROJECT_GUIDE.md
 │   └── AI_INDEX.md       # Generic index for templates
 └── README.md             # This file
 ```

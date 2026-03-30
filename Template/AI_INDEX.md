@@ -1,7 +1,7 @@
 # AI Index / AI 目錄與索引
 
-This is the root index for all AI guidelines in this project. It establishes a three-tier structure: **Project Overview**, **General Rules**, and **Project-Specific Rules**.
-這是本專案所有 AI 指南的根目錄索引。它建立了一個三層結構：**專案概覽**、**通用規則**與**專案特定規則**。
+This is the root index for all AI guidelines in this project. It establishes a three-tier structure: **Project Overview**, **General Rules**, and **Project Guide**.
+這是本專案所有 AI 指南的根目錄索引。它建立了一個三層結構：**專案概覽**、**通用規則**與**專案引導**。
 
 ## Reading Order & Logic / 讀取順序與邏輯
 
@@ -25,16 +25,16 @@ These files are located in the `.ai/General/` directory. They provide the founda
 4.  **`.ai/General/VCS_GUIDELINES.md`**: Understand the version control workflow and commit standards. (理解版本控制工作流程與提交標準。)
 5.  **`.ai/General/PROMPTS.md`**: Find templates for system instructions and specific tasks. (查找系統指令與特定任務的提示詞模板。)
 
-### Part 2: Project-Specific Rules (Override) / 第二部分：專案特定規則 (覆寫通用規則)
+### Part 2: Project Guide (Override) / 第二部分：專案引導 (覆寫通用規則)
 
 This file is located in the `.ai/` root directory. Its rules **override** or **extend** the general rules.
 此檔案位於 `.ai/` 根目錄。它的規則會**覆寫**或**擴展**通用規則。
 
-1.  **`.ai/PROJECT_SPECIFIC.md`**: Understand the project's tech stack, API conventions, coding standards, and other specific contexts. (理解專案的技術棧、API 慣例、編碼標準與其他特定上下文。)
+1.  **`.ai/PROJECT_GUIDE.md`**: Understand the project's directory structure, tech stack, API conventions, coding standards, and other specific contexts. (理解專案的目錄結構、技術棧、API 慣例、編碼標準與其他特定上下文。)
 
 ---
 
 ### ⚠️ CRITICAL INSTRUCTION FOR AI / 給 AI 的關鍵指令
 
-When a project-specific rule conflicts with a general rule, the **project-specific rule always takes precedence**. Your primary role is to adhere to the unique requirements of this project.
-當專案特定規則與通用規則衝突時，**永遠以專案特定規則為準**。您的首要職責是遵守此專案的獨特要求。
+When a project-specific rule conflicts with a general rule, the **project guide always takes precedence**. Your primary role is to adhere to the unique requirements of this project.
+當專案引導規則與通用規則衝突時，**永遠以專案引導規則為準**。您的首要職責是遵守此專案的獨特要求。

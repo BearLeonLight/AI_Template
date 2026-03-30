@@ -1,34 +1,41 @@
 # Project-Specific Rules / 專案特定規則
 
+This document defines the specific development rules for the "AI Templates" project itself. Since this project is a template repository, the rules here primarily focus on how to maintain, create, and extend these templates.
 此文件定義了「AI 模板 (AI Templates)」這個專案本身的專屬開發規範。由於本專案是一個模板儲存庫，這裡的規則主要針對如何維護、建立與擴充這些模板。
 
-## 1. 專案核心定位 (Project Core Positioning)
+## 1. Project Core Positioning / 專案核心定位
 
-本專案是一個 **AI 輔助開發模板儲存庫 (Template Repository)**。其主要目的是提供標準化、可重複使用的 `.ai` 目錄結構與規範內容，供其他各種專案直接複製與套用。
+This project is an **AI-assisted development template repository**. Its main purpose is to provide a standardized, reusable `.ai` directory structure and guideline content that can be directly copied and applied to other projects.
+本專案是一個 **AI 輔助開發模板儲存庫**。其主要目的是提供標準化、可重複使用的 `.ai` 目錄結構與規範內容，供其他各種專案直接複製與套用。
+
+**AI Role Reminder**: In this project, your role is a "Template Architect and Maintainer," responsible for optimizing and extending the framework, not a "Developer of the end project."
 **AI 角色提醒**: 在本專案中，您的角色是「模板建構師與維護者」，負責優化與擴充框架，而不是「終端專案的開發者」。
 
-## 2. 目錄結構與路徑模擬規範 (Directory & Path Simulation)
+## 2. Template Structure & Maintenance / 模板結構與維護
 
-本專案的結構分為兩大部分，必須嚴格區分其維護邏輯：
+The project's output is the `Template/` directory. Its structure must follow a strict "General + Specific" model.
+本專案的產出是 `Template/` 目錄。其結構必須嚴格遵循「通用 + 特定」的模型。
 
-- **`.ai/` 目錄**: 這是**本專案自身**的 AI 配置檔。所有針對此儲存庫本身的修改與行為，都受此目錄下的規則約束。
-- **`Template/` 目錄**: 這是存放供**其他專案**使用的模板來源。
-  - **⚠️ 核心路徑模擬原則**: 當您修改 `Template/` 目錄下的任何檔案時，**必須假設該檔案已經被複製到目標專案的 `.ai/` 目錄下**。
-  - **舉例**: 在 `Template/AI_INDEX.md` 檔案內的文字或路徑引用，若要指向通用規則，必須寫成 `.ai/General/GENERAL_RULES.md`，**絕對不可**寫出 `Template/...` 這樣的實體路徑。所有模板內容輸出的路徑都必須是以 `.ai/` 為起點。
+*   **`Template/General/`**: Contains universally applicable rules (e.g., security, VCS). These files must remain technology-agnostic.
+*   **`Template/General/`**: 存放通用性規則（如安全、版本控制）。這些檔案必須保持技術中立。
+*   **`Template/{TechnologyName}/`**: Contains rules for a specific technology stack (e.g., `PaperMcPlugin`, `React`).
+    *   This directory should **only** contain a `PROJECT_GUIDE.md` file.
+    *   It is strictly forbidden to have duplicates of general rules (like `SECURITY_RULES.md`) inside this directory. All specific overrides or extensions must be consolidated into `PROJECT_GUIDE.md`.
+*   **`Template/{TechnologyName}/`**: 存放特定技術棧（如 `PaperMcPlugin`, `React`）的規則。
+    *   此目錄下 **只應** 包含一個 `PROJECT_GUIDE.md` 檔案。
+    *   嚴禁在此目錄下放置通用規則的副本（如 `SECURITY_RULES.md`）。所有特定的覆寫或擴充都必須統一寫在 `PROJECT_GUIDE.md` 中。
 
-## 3. 模板維護與同步原則 (Template Maintenance & Sync)
+## 3. Path Simulation Principle / 路徑模擬原則
 
-- **通用性優先 (Universality First)**: `Template/General/` 目錄下的所有規範必須保持最高度的通用性，適用於任何語言與框架。絕對不可將特定技術棧的規則寫入通用規範中。
-- **雙向同步 (Two-Way Sync)**: 本專案自身的 `.ai/General/` 內容應與 `Template/General/` 保持高度同步。當發現通用規則需要優化時，應同時更新這兩個位置，以確保本專案自身與輸出的模板皆能享有最佳實踐。
-- **模組化擴充 (Modular Expansion)**: 若要新增特定技術（如 Web, Mobile, Plugin 等）的規範，應在 `Template/` 下建立該技術的專屬子目錄（例如 `Template/React/`）。該目錄內通常只應包含高度客製化的 `PROJECT_SPECIFIC.md`。
+When you modify any file within the `Template/` directory, you **must assume** that the file has already been copied to the target project's `.ai/` directory.
+當您修改 `Template/` 目錄下的任何檔案時，**必須假設**該檔案已經被複製到目標專案的 `.ai/` 目錄下。
 
-## 4. 內容與格式標準 (Content & Formatting Standards)
+*   **Example**: A path reference inside `Template/AI_INDEX.md` pointing to the general rules must be written as `.ai/General/GENERAL_RULES.md`, **never** as `Template/...`.
+*   **舉例**: 在 `Template/AI_INDEX.md` 檔案內的文字或路徑引用，若要指向通用規則，必須寫成 `.ai/General/GENERAL_RULES.md`，**絕對不可**寫出 `Template/...` 這樣的實體路徑。
 
-- **Markdown 嚴格要求**: 所有模板檔案必須使用標準的 Markdown 格式。
-  - 標題結構需清晰 (H1 代表檔名/主旨, H2 代表主要章節, H3 代表次要章節)。
-  - 善用列表 (Lists)、粗體 (Bold) 與程式碼區塊 (Code Blocks) 來凸顯重點，提升 AI 與人類的可讀性。
-- **語言限制**: 嚴格遵守 `GENERAL_RULES.md`，內容解釋與敘述必須使用**繁體中文**，所有**技術術語 (Technical Terms) 必須保留英文原文**。
+## 4. Content & Formatting Standards / 內容與格式標準
 
-## 5. 防循環保護 (Anti-Loop Protection)
-
-- 若發現相同的錯誤、指令或修正動作被重複執行 (連續嘗試 3 次仍未解決時)，應立即停止當前操作，中斷任何無限迴圈 (包含無限檢查、修正、新增、更新、優化等與 AI 相關之動作)，並主動向開發者回報卡住的問題點及可能原因，等待開發者指示。
+*   **Markdown**: All template files must use standard Markdown.
+*   **Bilingual Content**: All template files must be written in both **English** and **Traditional Chinese**. Technical terms should remain in English.
+*   **Markdown**: 所有模板檔案必須使用標準 Markdown 格式。
+*   **雙語內容**: 所有模板檔案都必須同時包含**英文**與**繁體中文**。技術術語應保留英文原文。

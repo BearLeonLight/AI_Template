@@ -1,0 +1,21 @@
+# IDE - General
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Build artifacts
+build/
+out/
+target/
+
+# Dependency directories
+node_modules/
+
+# Log files
+*.log
+
+# OS-specific
+.DS_Store
+Thumbs.db
